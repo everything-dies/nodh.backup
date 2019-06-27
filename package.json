@@ -1,6 +1,6 @@
 {
   "name": "@everything-dies/nodh",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "main": "dist/index.js",
   "repository": {
     "type": "git",
@@ -10,8 +10,8 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "babel ./src --config-file ./config/babel --watch --out-dir ./dist",
-    "prepublishOnly": "babel ./src --config-file ./config/babel --out-dir ./dist -s inline"
+    "start": "concurrently \"eslint ./src\" \"babel ./src --watch --out-dir ./dist\"",
+    "prepublishOnly": "babel ./src --out-dir ./dist"
   },
   "peerDependencies": {
     "react": "^16.8.6"
@@ -19,6 +19,7 @@
   "dependencies": {
     "immutability-helper": "^3.0.1",
     "lodash": "^4.17.11",
+    "prop-types": "^15.7.2",
     "react-redux": "^7.1.0",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
@@ -29,10 +30,24 @@
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "9.x",
     "babel-plugin-module-resolver": "^3.2.0",
+    "concurrently": "^4.1.1",
+    "eslint": "5.x",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-config-react-app": "^4.0.1",
+    "eslint-plugin-flowtype": "2.x",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jest": "^22.7.1",
+    "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react-hooks": "1.5.0",
     "husky": "^2.5.0",
     "lint-staged": "^8.2.1",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "react": "^16.8.6"
   },
   "husky": {
     "hooks": {
