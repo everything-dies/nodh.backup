@@ -1,6 +1,6 @@
 {
   "name": "@everything-dies/nodh",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "main": "dist/index.js",
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
     "immutability-helper": "^3.0.1",
     "lodash": "^4.17.11",
     "prop-types": "^15.7.2",
-    "react-redux": "^7.1.0",
+    "react-redux": "https://github.com/ryaninvents/react-redux.git#feat/create-hooks-api",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
     "redux-persist": "^5.10.0"
