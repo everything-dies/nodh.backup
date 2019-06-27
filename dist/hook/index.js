@@ -11,8 +11,6 @@ var _attempt = _interopRequireDefault(require("lodash/attempt"));
 
 var _react = require("react");
 
-var _reactRedux = require("react-redux");
-
 var _constant = _interopRequireDefault(require("../constant"));
 
 var _stringify = _interopRequireDefault(require("../helpers/object/stringify"));
@@ -21,9 +19,12 @@ var _replace = _interopRequireDefault(require("../helpers/object/replace"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var _default = settings => {
-  const dispatch = (0, _reactRedux.useDispatch)();
-  const state = (0, _reactRedux.useSelector)(settings.selector);
+var _default = ({
+  useDispatch,
+  useSelector
+}) => settings => {
+  const dispatch = useDispatch();
+  const state = useSelector(settings.selector);
   const connect = (0, _react.useCallback)((namespace, action) => (...params) => {
     const typify = level => `${_constant.default}: [${(0, _first.default)(level)}] ${namespace.join('.')}(${(0, _stringify.default)(params)});`;
 
