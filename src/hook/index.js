@@ -1,13 +1,12 @@
 import first from 'lodash/first';
 import attempt from 'lodash/attempt';
 import { useMemo, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 import NODH from 'constant';
 import stringify from 'helpers/object/stringify';
 import replace from 'helpers/object/replace';
 
-export default settings => {
+export default ({ useDispatch, useSelector }) => settings => {
   const dispatch = useDispatch();
   const state = useSelector(settings.selector);
   const connect = useCallback(

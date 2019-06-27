@@ -1,10 +1,10 @@
-import { shape, func, node } from 'prop-types';
+import { shape, elementType, func, node } from 'prop-types';
 import React from 'react';
 import { Provider as Redux } from 'react-redux';
 import { PersistGate as Persistence } from 'redux-persist/integration/react';
 
-const Provider = ({ store, persistor, children }) => (
-  <Redux store={store}>
+const Provider = ({ context, store, persistor, children }) => (
+  <Redux context={context} store={store}>
     <Persistence persistor={persistor} loading="Loading...">
       {children}
     </Persistence>
@@ -12,6 +12,10 @@ const Provider = ({ store, persistor, children }) => (
 );
 
 Provider.propTypes = {
+  context: shape({
+    Consumer: elementType.isRequired,
+    Provider: elementType.isRequired,
+  }).isRequired,
   store: shape({
     subscribe: func.isRequired,
     dispatch: func.isRequired,
