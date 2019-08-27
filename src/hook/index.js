@@ -30,6 +30,7 @@ export default ({ useDispatch, useSelector }) => settings => {
     settings.actions,
     connect,
   ]);
+  const API = useMemo(() => [state, actions], { state, actions });
 
-  return [state, actions];
+  return API;
 };
